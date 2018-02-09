@@ -16,16 +16,20 @@ def calc():
     global SwitchStatus
     
     counter = 0
+    #Set up pre Failure case assuming that Alt Coin isn't found
     CoinOnePrice = False
+    #Loop through Json to find the Alt coin while also trying to find ETH and grab the price of it
     while counter < len(CoinList.json()):
         if CoinList.json()[counter]["symbol"].upper() == str(CoinOne.get()).upper():
             CoinOnePrice = CoinList.json()[counter]["price_usd"]
         if CoinList.json()[counter]["symbol"].upper() == "ETH":
             ETHPrice = CoinList.json()[counter]["price_usd"]
         counter += 1
+    #Coin not found
     if CoinOnePrice == False:
         status.configure(text="Coin Not Found")
     else:
+        #If SwitchStatus == False then the program Converts Alt Coin to ETH, If SwitchStatus == True then the program converts the amount entered of ETH into Alt coins
         if SwitchStatus == False:
             CoinOneAmountUSD = float(CoinOnePrice) * float(CoinAmount.get())
             ETHAmount = float(CoinOneAmountUSD) / float(ETHPrice)
@@ -39,7 +43,7 @@ def calc():
         
         
         
-        
+#Button to switch from converting alt coin to ETH or ETH to alt coin        
 def switch():
     global SwitchStatus
     global status
