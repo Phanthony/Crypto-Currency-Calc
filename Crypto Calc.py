@@ -9,8 +9,6 @@ CoinList = requests.get(url)
 SwitchStatus = False
 
 
-print("starting up program...")
-
 def calc():
     global status
     global CoineOne
