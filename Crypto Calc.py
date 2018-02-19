@@ -54,10 +54,11 @@ def switch():
     else:
         SwitchStatus = False
         status.configure(text="Converting Desired Coin to ETH")
+
         
-    
-    
         
+        
+    #GUI Creation    
 window = tkinter.Tk()
 window.title("Desired Coin to ETH")
     
